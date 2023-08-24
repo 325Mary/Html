@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario PQRS</title>
+</head>
+<style>
+     body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .form-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Ajusta la altura según tus necesidades */
+        }
+</style>
+<script>
+        function enviarFormulario() {
+            
+            window.location.href = 'respuesta.html';
+        }
+    </script>
+<body>
+    <div id="pqrs" class="container hidden">
+        <h2>Formulario PQRS</h2>
+        <form action="procesar_pqrs.php" method="post">
+            <label for="tipo">Tipo:</label>
+            <select name="tipo" id="tipo">
+                <option value="peticion">Peticion</option>
+                <option value="queja">Queja</option>
+                <option value="reclamo">Reclamo</option>
+                <option value="sugerencia">Sugerencia</option>
+            </select>
+            <br>
+            <label for="mensaje">Mensaje:</label><br>
+            <textarea name="mensaje" id="mensaje" rows="4" cols="50"></textarea>
+            <br>
+            <input type="submit" value="Enviar"> 
+            <div id="mensaje-exito" class="success-message">
+                ¡El formulario se envió con éxito!
+    
+            </div>
+        </form>
+    </div>
+    <div id="contacto" class="container hidden">
+    
+    
+    
+</body>
+</html>

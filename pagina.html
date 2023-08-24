@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Películas y Fondos de Pantalla de Star</title>
+    
+    <style>
+        
+  
+
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #0a0c74; 
+            background-image: url("C:\Users\USUARIO\OneDrive\Imágenes\star.jpg"); 
+            background-size: 10rem; 
+            
+}
+
+        
+
+        header {
+            background-color: #5a557cef;
+            color: #161515;
+            text-align: center;
+            padding: 1rem;
+            width: 100%;
+        }
+        .btn-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        .btn {
+            font-size: 1.5rem;
+            padding: 1rem 2rem;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #555;
+            transform: scale(1.05);
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            padding: 2rem;
+        }
+        .item {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 1rem;
+            text-align: center;
+            max-width: 400px;
+            transition: transform 0.2s ease, box-shadow 0.3s ease;
+        }
+        .item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .form-container {
+            background-color: #d0df0a;
+            border-radius: 10px;
+            box-shadow: 0px 2px 4px rgba(119, 38, 38, 0.1);
+            padding: 2rem;
+            max-width: 400px;
+        }
+        
+        
+  
+        
+    </style>
+    <script>
+        function mostrarContenido(tipo) {
+            const opciones = document.getElementById('opciones');
+            opciones.classList.add('hidden');
+
+            const contenido = document.getElementById(tipo);
+            contenido.classList.remove('hidden');
+        }
+
+        
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Mis Películas y Fondos de Pantalla</h1>
+    </header>
+    <div id="opciones" class="btn-container">
+        <a href="file:///C:/Users/USUARIO/OneDrive/Documentos/HTML/peliculas.html" class="btn">Ver Películas</a>
+       
+    </div>
+    
+
+    <div id="opciones" class="btn-container">
+        <a href="file:///C:/Users/USUARIO/OneDrive/Documentos/HTML/fondos.html" class="btn">Ver fondos de pantalla</a>
+        
+    </div>
+
+    <div id="opciones" class="btn-container"></div>
+        <a href="file:///C:/Users/USUARIO/OneDrive/Documentos/HTML/formulario.html" class="btn"> Formulario PQRS </a>
+        
+    </header>
+
+        
+<h2>Contáctenos</h2>
+        <div class="contact-info">
+            
+            
+<p>Puede comunicarse con nosotros a través de:</p>
+            <ul>
+                <li>Teléfono: (123) 456-7890</li>
+                <li>Correo electrónico: info@ejemplo.com</li>
+                <li>Redes sociales: @EjemploSocial</li>
+            </ul>
+        </div>
+    
+    </div>
+</body>
+</html>
+
+
+
+
