@@ -1,0 +1,62 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #9c9cbe; 
+    background-image: url("C:\Users\USUARIO\OneDrive\Imágenes\star.jpg"); 
+    background-size: 10rem; 
+}
+    
+
+.contenedor-peliculas {
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+max-width: 120px;
+margin: 0 auto;
+padding: 2px;
+}
+
+.boton-pelicula {
+border: none;
+background: none;
+cursor: pointer;
+padding: 0;
+text-align: center;
+font-size: 20px; 
+flex-basis: calc(1% - 1px);
+margin: 1px;
+}
+
+nav {
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo semi transparente */
+    padding: 10px 0;
+}
+
+.navbar {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar li {
+    margin: 0 10px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.navbar a:hover {
+    background-color: #555; /* Color de fondo al pasar el ratón sobre un enlace */
+}

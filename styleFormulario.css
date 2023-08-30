@@ -10,3 +10,31 @@
         align-items: center;
         height: 100vh; 
     }
+    nav {
+        background-color: rgba(0, 0, 0, 0.7); /* Fondo semi transparente */
+        padding: 10px 0;
+    }
+
+    .navbar {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    .navbar li {
+        margin: 0 10px;
+    }
+
+    .navbar a {
+        text-decoration: none;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+
+    .navbar a:hover {
+        background-color: #555; /* Color de fondo al pasar el ratón sobre un enlace */
+    }

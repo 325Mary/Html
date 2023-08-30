@@ -1,28 +1,62 @@
 
         body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            text-align: center;
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background-color: #0d0d0e; 
-            background-image: url("C:\Users\USUARIO\OneDrive\Imágenes\star.jpg"); 
-            background-repeat: no-repeat;
-            background-position-x: center;
-            background-position-y: center;
-            background-size: 10rem; 
+            background-color: #cacae4;
+            padding: 2px;
             
 }
+    .gallery {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2px;
+    }
+
+    .gallery {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 40px; /* Mayor espaciado entre las imágenes */
+    }
 
         
         
         img {
-            width: 600px; /* Cambia este valor al tamaño deseado */
-            height: auto;
-            margin: 10px;
+            
+            height: 500px;
+            margin: 20px;
         }
-   
+        figcaption {
+
+            align-items: center;
+            margin-top: 30px;
+        }
+        nav {
+            background-color: rgba(0, 0, 0, 0.7); /* Fondo semi transparente */
+            padding: 10px 0;
+        }
+
+        .navbar {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .navbar li {
+            margin: 0 10px;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .navbar a:hover {
+            background-color: #555; /* Color de fondo al pasar el ratón sobre un enlace */
+        }
