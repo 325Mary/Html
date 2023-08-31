@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <title>Confirmación de Registro</title>
+</head>
+<body>
+    <title>Confirmación de Registro</title>
+</head>
+<body>
+    <h1>Confirmación de Registro</h1>
+    <p>A continuación se muestran los datos que has ingresado:</p>
+    
+    <p>Nombre: <span id="nombre"></span></p>
+    <p>Usuario: <span id="usuario"></span></p>  <!-- Fix: Correct ID -->
+    <p>Email: <span id="email"></span></p>
+    <p>Telefono: <span id="Telefono"></span></p>
+    <p>Tipo de Usuario: <span id="productor"></span></p>
+    <p>Rut: <span id="Rut"></span></p>
+    <p>Ubicación: <span id="Ubicacion"></span></p>  <!-- Fix: Correct ID -->
+    <script>
+        function cargarDatos() {
+        const nombre = localStorage.getItem("nombre");
+        const usuario = localStorage.getItem("usuario");
+        const email = localStorage.getItem("email");
+        const telefono = localStorage.getItem("telefono");
+        const tipoUsuario = localStorage.getItem("TipoUsuario"); 
+
+        document.getElementById("nombre").textContent = nombre;
+        document.getElementById("usuario").textContent = usuario;
+        document.getElementById("email").textContent = email;
+        document.getElementById("Telefono").textContent = telefono;
+        document.getElementById("tipoUsuario").textContent = tipoUsuario; 
+
+        if (tipoUsuario === "Productor") {
+            const rut = localStorage.getItem("rut"); 
+            const ubicacion = localStorage.getItem("ubicacion"); 
+            document.getElementById("Rut").textContent = rut;
+            document.getElementById("Ubicacion").textContent = ubicacion;
+        }
+    }
+
+     function editar() {
+            window.location.href = "registro.html";
+        }
+        
+        window.onload = cargarDatos;
+
+    </script>
+    
+</body>
+</html>
