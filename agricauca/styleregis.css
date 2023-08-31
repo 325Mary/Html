@@ -1,0 +1,29 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.navbar {
+  background-color: #0afc0a;
+  width: 100%;
+  padding: 10px 0;
+  text-align: center;
+  color: white;
+}
+
+.contr{
+  margin-left: 20px;
+  margin-top: 20px;
+  padding: 100px;
+}
+
+button {
+  margin-top: 10px;
+}
+  
+  
+  

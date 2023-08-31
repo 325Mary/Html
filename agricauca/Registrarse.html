@@ -4,8 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrarse</title>
+    <link rel="stylesheet" href="styleregis.css">
 </head>
 <body>
+    <nav class = navbar >
+        <div>
+            <a href="index pagina.html">Inicio</a>
+        </div>
+
+    </nav>
+    <div class=contr>
     <h1>Formulario de Registro</h1>
     <form id="formulario">
         <label for="nombre">Nombre:</label>
@@ -35,7 +43,7 @@
         
         <button type="button" onclick="guardarDatos()">Enviar</button>
     </form>
-    
+    </div>
     <script>
         function mostrarCamposAdicionales() {
             const tipoUsuario = document.getElementById("tipoUsuario").value;

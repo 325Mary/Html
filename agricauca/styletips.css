@@ -1,0 +1,32 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    line-height: 1.6;
+}
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+h2 {
+    margin-top: 20px;
+}
+p {
+    margin-bottom: 10px;
+}
+.navbar {
+    background-color: #0afc0a;
+    width: 100%;
+    padding: 10px 0;
+    text-align: center;
+    color: white;
+  }
+  
+  .contr{
+    margin-left: 20px;
+    margin-top: 20px;
+    padding: 100px;
+  }
+  
+  button {
+    margin-top: 10px;
+  }
