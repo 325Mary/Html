@@ -38,10 +38,31 @@
         </form>
     </div>
     <script>
-    function enviarFormulario() {
-        
-        window.location.href = 'enviar.html';
-        
+    function enviarFormulario(){
+        const tipo =   document.getElementById("tipo").value;
+        const mensaje = document.getElementById("mensaje").value;
+        // creacion del objeto formdata con los datos del formulario
+        const formData = new FormData();
+        formdata.appened("tipo", tipo);
+        formdata.appened("mensaje", mensaje);
+
+        // enviar datos als ervidor php
+        fetch("procesar_pqrs.php",{
+            method: "POST",
+            body: formData
+
+        })
+        .then(Response =>{
+            if(Response.ok){
+                alert("Formulario enviado con exito")
+            } else {
+                alert("Eroor al enviar formulario")
+            }
+        })
+        .catch(error => {
+            console.error("Error al enviar Formulario", error);
+        });
+
 
     }
 </script>

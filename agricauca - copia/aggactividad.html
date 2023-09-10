@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Actividades</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .column {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+            min-height: 100px;
+            position: relative;
+        }
+
+        .add-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-dark">
+        <form class="container-fluid">
+             <div class="align-self-end">
+             <a class="btn btn-success btn-sm" href="TipsOrganicos.html"> Tips Organicos</a>  
+             <a class="btn btn-success btn-sm" href="cerrarseccionPro.html"> Cerrar seccion</a>  
+        </div>
+       
+    </form>
+    </nav>
+    <br>
+    <div class="container mt-4">
+        <h1 class="text-center">Actividades</h1>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="column">
+                    <h2>Sembrado</h2>
+                    <div class="add-button" onclick="agregarActividad('sembrado')">
+                    <a href="detalles.html" >+</a></div>
+                    
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="column">
+                    <h2>Desarrollo</h2>
+                    <div class="add-button" onclick="agregarActividad('desarrollo')">
+                    <a href="detalles.html">+</a></div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="column">
+                    <h2>Cosecha</h2>
+                    <div class="add-button" onclick="agregarActividad('cosecha')">
+                        <a href="detalles.html">+</a></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal" class="modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Agregar Actividad</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="activityName">Nombre de la actividad:</label>
+                            <input type="text" class="form-control" id="activityName">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" onclick="guardarActividad()">Guardar</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <script>
+        var currentColumn; // Variable para rastrear la columna actual
+
+        function agregarActividad(column) {
+            currentColumn = column; // Guarda la columna actual en la variable
+
+            // Abre el modal para agregar una actividad
+            $('#modal').modal('show');
+        }
+
+        function guardarActividad() {
+            // Obtiene el nombre de la actividad ingresado por el usuario
+            var activityName = document.getElementById("activityName").value;
+
+            if (activityName.trim() !== "") {
+                // Crea un nuevo elemento de lista
+                var listItem = document.createElement("li");
+                listItem.textContent = activityName;
+
+                // Encuentra la columna actual y agrega la actividad
+                var column = document.querySelector("." + currentColumn);
+                column.appendChild(listItem);
+
+                // Limpia el campo de entrada
+                document.getElementById("activityName").value = "";
+
+                // Cierra el modal
+                $('#modal').modal('hide');
+            }
+        }
+    </script>
+</body>
+</html>

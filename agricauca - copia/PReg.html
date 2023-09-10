@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Productos registrados</title>
-    <!-- Incluye la biblioteca de Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
@@ -19,11 +18,73 @@
     </form>
     </nav>
 
+    <br>
+
+        <!-- agregar productos -->
+        <form id="productForm" onsubmit="agregar(); return false;">
+            <label for="productName">Agregar Producto:</label>
+            <input type="text" id="productName" required>
+            <button type="submit" class="btn btn-primary">Agregar</button>
+        </form>
+    </div>
+
+    <!--  biblioteca de Bootstrap JavaScript  -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+    <script>
+        function agregar() {
+            // Obtener el valor del nombre del producto
+            var productName = document.getElementById("productName").value;
+
+            // Verificar si el campo de nombre no está vacío
+            if (productName.trim() !== "") {
+                // Obtener la tabla
+                var table = document.getElementById("productTable").getElementsByTagName('tbody')[0];
+
+                // Crear una nueva fila
+                var newRow = table.insertRow(table.rows.length);
+
+                // Insertar celdas en la fila
+                var cell1 = newRow.insertCell(0);
+                var cell2 = newRow.insertCell(1);
+                var cell3 = newRow.insertCell(2);
+
+                // Agregar datos a las celdas
+                cell1.innerHTML = productName;
+                cell2.innerHTML = "En Proceso...";
+
+                // Crear botones para acciones
+                var addButton = document.createElement("button");
+                addButton.className = "btn btn-secondary";
+                addButton.innerHTML = "Agregar Actividad";
+                addButton.addEventListener("click", function() {
+                window.location.href = "aggactividad.html";
+                });
+
+
+                var editButton = document.createElement("button");
+                editButton.className = "btn btn-secondary";
+                editButton.innerHTML = "Editar";
+
+                var deleteButton = document.createElement("button");
+                deleteButton.className = "btn btn-secondary";
+                deleteButton.innerHTML = "Eliminar";
+
+                // Agregar botones a la tercera celda
+                cell3.appendChild(addButton);
+                cell3.appendChild(editButton);
+                cell3.appendChild(deleteButton);
+
+                // Limpiar el campo de entrada
+                document.getElementById("productName").value = "";
+            }
+        }
+    </script>
+
     <div class="container mt-4">
         <h1 class="text-center">Tabla de Productos</h1>
-        <table class="table">
+        <table class="table" id="productTable">
             <thead>
-                
                 <tr>
                     <th>Nombre del Producto</th>
                     <th>Estado</th>
@@ -31,62 +92,8 @@
                 </tr>
             </thead>
             <tbody>
-                
-                <tr>
-                    <td>Aceite de Neem</td>
-                    <td>En Proceso...</td>
-                    <td>
-                        <button class="btn btn-secondary">Agregar Actividad</button>
-                        <button class="btn btn-secondary">Editar</button>
-                        <button class="btn btn-secondary">Eliminar</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Extracto de Eucalipto</td>
-                    <td>Terminado</td>
-                    <td>
-                        <button class="btn btn-secondary">Agregar Actividad</button>
-                        <button class="btn btn-secondary">Editar</button>
-                        <button class="btn btn-secondary">Eliminar</button>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>Extracto de Eucalipto</td>
-                    <td>Terminado</td>
-                    <td>
-                        <button class="btn btn-secondary">Agregar Actividad</button>
-                        <button class="btn btn-secondary">Editar</button>
-                        <button class="btn btn-secondary">Eliminar</button>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>Extracto de Eucalipto</td>
-                    <td>Terminado</td>
-                    <td>
-                        <button class="btn btn-secondary">Agregar Actividad</button>
-                        <button class="btn btn-secondary">Editar</button>
-                        <button class="btn btn-secondary">Eliminar</button>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>Extracto de Eucalipto</td>
-                    <td>Terminado</td>
-                    <td>
-                        <button class="btn btn-secondary">Agregar Actividad</button>
-                        <button class="btn btn-secondary">Editar</button>
-                        <button class="btn btn-secondary">Eliminar</button>
-                    </td>
-                </tr>
+                <!-- Aquí se agregarán las filas dinámicamente -->
             </tbody>
-            
         </table>
-    </div>
-
-
-    <!-- Incluye la biblioteca de Bootstrap JavaScript (opcional) -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 </body>
 </html>
