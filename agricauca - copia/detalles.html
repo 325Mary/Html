@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -20,7 +20,6 @@
     <div class="container mt-4">
         <h1 class="text-center">Detalles de Actividad de Siembra</h1>
 
-        <!-- Formulario para ingresar detalles de actividad -->
         <form id="activityDetailsForm">
             <div class="form-group">
                 <label for="activityName">Nombre de la actividad:</label>
@@ -45,7 +44,7 @@
 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
     <script>
-        // Estructura de datos para almacenar actividades de Siembra
+        
         var actividadesSiembra = [];
 
         function guardarActividad() {
@@ -53,23 +52,119 @@
             var activityName = document.getElementById("activityName").value;
             var activityDate = document.getElementById("activityDate").value;
             var activityDescription = document.getElementById("activityDescription").value;
-            var activityPhoto = document.getElementById("activityPhoto").value; // Debes manejar la carga de la foto aquí
-
-            // Crea un objeto para la actividad
+            var activityPhoto = document.getElementById("activityPhoto").value; 
             var actividad = {
                 nombre: activityName,
                 fecha: activityDate,
                 descripcion: activityDescription,
-                foto: activityPhoto // Aquí puedes manejar la foto
+                foto: activityPhoto //
             };
 
-            // Agrega la actividad a la lista de actividades de Siembra
+            
             actividadesSiembra.push(actividad);
 
-            // Redirige de vuelta a la página de actividades
-            window.location.href = "pagina_actividad.html";
+            window.location.href = "aggactividad.html";
         }
     </script>
 </body>
 </html>
-
+ -->
+ <!DOCTYPE html>
+ <html lang="es">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Detalles de Actividad de Siembra</title>
+     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet">
+ </head>
+ 
+ <body>
+     <nav class="navbar navbar-expand-lg bg-dark">
+         <form class="container-fluid">
+             <div class="align-self-end">
+                 <a class="btn btn-success btn-sm" href="TipsOrganicos.html"> Tips Orgánicos</a>
+                 <a class="btn btn-success btn-sm" href="cerrarseccionPro.html"> Cerrar sesión</a>
+             </div>
+         </form>
+     </nav>
+     <div class="container mt-4">
+         <h1 class="text-center">Detalles de Actividad de Siembra</h1>
+ 
+         <!-- Botones para seleccionar la columna -->
+         <div class="btn-group" role="group" aria-label="Seleccionar Columna">
+             <button type="button" class="btn btn-secondary" onclick="seleccionarColumna('siembra')">Siembra</button>
+             <button type="button" class="btn btn-secondary" onclick="seleccionarColumna('desarrollo')">Desarrollo</button>
+             <button type="button" class="btn btn-secondary" onclick="seleccionarColumna('cosecha')">Cosecha</button>
+         </div>
+ 
+         <!-- Formulario para ingresar detalles de actividad -->
+         <form id="activityDetailsForm">
+             <div class="form-group">
+                 <label for="activityName">Nombre de la actividad:</label>
+                 <input type="text" class="form-control" id="activityName" required>
+             </div>
+             <div class="form-group">
+                 <label for="activityDate">Fecha de la actividad:</label>
+                 <input type="date" class="form-control" id="activityDate" required>
+             </div>
+             <div class="form-group">
+                 <label for="activityDescription">Descripción de la actividad:</label>
+                 <textarea class="form-control" id="activityDescription" rows="4" required></textarea>
+             </div>
+             <div class="form-group">
+                 <label for="activityPhoto">Agregar Foto:</label>
+                 <input type="file" class="form-control-file" id="activityPhoto">
+             </div>
+             <button type="button" class="btn btn-primary" onclick="guardarActividad()">Guardar</button>
+             <a class="btn btn-secondary" href="pagina_actividad.html">Cancelar</a>
+         </form>
+     </div>
+ 
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+     <script>
+         // Estructuras de datos para almacenar actividades por columna
+         var actividadesSiembra = [];
+         var actividadesDesarrollo = [];
+         var actividadesCosecha = [];
+         var columnaSeleccionada = null;
+ 
+         function seleccionarColumna(columna) {
+             columnaSeleccionada = columna;
+             document.querySelector('h1').textContent = 'Detalles de Actividad de ' + columna.charAt(0).toUpperCase() + columna.slice(1);
+         }
+ 
+         function guardarActividad() {
+             if (columnaSeleccionada === null) {
+                 alert('Por favor, selecciona una columna antes de guardar la actividad.');
+                 return;
+             }
+ 
+             // Obtiene los valores de los campos del formulario
+             var activityName = document.getElementById("activityName").value;
+             var activityDate = document.getElementById("activityDate").value;
+             var activityDescription = document.getElementById("activityDescription").value;
+             var activityPhoto = document.getElementById("activityPhoto").value;
+ 
+             var actividad = {
+                 nombre: activityName,
+                 fecha: activityDate,
+                 descripcion: activityDescription,
+                 foto: activityPhoto
+             };
+ 
+             // Agrega la actividad a la lista correspondiente según la columna seleccionada
+             if (columnaSeleccionada === 'siembra') {
+                 actividadesSiembra.push(actividad);
+             } else if (columnaSeleccionada === 'desarrollo') {
+                 actividadesDesarrollo.push(actividad);
+             } else if (columnaSeleccionada === 'cosecha') {
+                 actividadesCosecha.push(actividad);
+             }
+ 
+             // Redirige de vuelta a la página de actividades
+             window.location.href = "aggactividad.html";
+         }
+     </script>
+ </body>
+ </html>
+ 

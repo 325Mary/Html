@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmacion de formulario</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-dark">
+        <form class="container-fluid">
+             <div class="align-self-end">
+             <a class="btn btn-success btn-sm" href="index pagina.html"> Inicio</a>  
+      
+        </div>
+       
+    </form>
+    </nav>
+    <div class="container mt-4">
+        <h1 class="text-center">Confirmación de Registro</h1>
+        <p class="text-center">A continuación se muestran los datos que has ingresado:</p>
+
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <ul class="list-group">
+                    <li class="list-group-item">Nombre: <span id="nombre"></span></li>
+                    <li class="list-group-item">Usuario: <span id="usuario"></span></li>
+                    <li class="list-group-item">Email: <span id="email"></span></li>
+                    <li class="list-group-item">Telefono: <span id="Telefono"></span></li>
+                    
+                </ul>
+                <div class="text-center mt-3">
+                    <button class="btn btn-primary" onclick="editar()">Editar</button>
+                    <button class="btn btn-success" onclick="confirmar()">Confirmar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Incluye la biblioteca de Bootstrap JavaScript (opcional) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+    <script>
+        function cargarDatos() {
+            const nombre = localStorage.getItem("nombre");
+            const usuario = localStorage.getItem("usuario");
+            const email = localStorage.getItem("email");
+            const telefono = localStorage.getItem("telefono");
+            
+
+            document.getElementById("nombre").textContent = nombre;
+            document.getElementById("usuario").textContent = usuario;
+            document.getElementById("email").textContent = email;
+            document.getElementById("Telefono").textContent = telefono;
+           
+        }
+        
+        function editar() {
+            window.location.href = "Registrarse.html";
+        }
+        function confirmar() {
+            alert("Datos Registrados")
+            window.location.href = "catalogo.html";
+        }
+
+        window.onload = cargarDatos;
+    </script>
+</body>
+</html>

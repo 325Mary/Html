@@ -1,6 +1,8 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrarse</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet"/>
@@ -8,16 +10,12 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-dark">
         <form class="container-fluid">
-             <div class="align-self-end">
-             <a class="btn btn-success btn-sm" href="index pagina.html"> Inicio</a>  
-        
-        </div>
-       
-    </form>
+            <div class="align-self-end">
+                <a class="btn btn-success btn-sm" href="index pagina.html"> Inicio</a>  
+            </div>
+        </form>
     </nav>
     
-    
-
     <div class="container">
         <h1>Formulario de Registro</h1>
         <form  id="formulario">
@@ -28,7 +26,7 @@
             <label for="Contraseña">Contraseña:</label>
             <input type="password" id="Contraseña" name="Contraseña" required maxlength="8" placeholder="Max 8 caracteres"><br><br>
             <label for="Confirmacion Contraseña">Confirmacion Contraseña:</label>
-            <input type="password" id="Confirmacion Contraseña" name="Confirmacion Contraseña" required maxlength="8"><br><br>
+            <input type="password" id="ConfirmacionContraseña" name="ConfirmacionContraseña" required maxlength="8"><br><br>
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required placeholder="juan@example.com"><br><br>
             <label for="Telefono">Telefono:</label>
@@ -43,26 +41,12 @@
                 <input type="text" id="Rut" name="Rut" required placeholder="137474-x"><br><br>
                 
                 <label for="Ubicacion del producto/finca">Ubicacion del producto/finca</label>
-                <input type="text" id="Ubicacion del producto_/finca" name="campo2" required placeholder="Ej: Ciudad, pais"><br><br>
+                <input type="text" id="UbicacionDelProductoFinca" name="UbicacionDelProductoFinca" required placeholder="Ej: Ciudad, país"><br><br>
             </div>
             
             <button type="button" onclick="guardarDatos()">Enviar</button>
         </form>
-    
-
-    
-<!-- <div class="container mt-4" >
-        <div class="row">
-           <div class="col-md-4">
-                <div style="border:5px solid; padding :70px; text-align: center;">
-                    <label for="imagenPerfil" style="cursor: pointer;">
-                        <img src="foto.jpg" alt="Icono de Foto" width="50">
-                    </label>
-                    <input type="file" id="imagenPerfil" name="imagenPerfil" accept="image/*" style="display: none;" required>
-                </div>
-                <p class="text-center mt-2">Subir imagen de perfil (Requerido)</p>
-            </div> -->
-
+    </div>
 
     <script>
         function mostrarCamposAdicionales() {
@@ -80,9 +64,22 @@
             const nombre = document.getElementById("nombre").value;
             const usuario = document.getElementById("usuario").value;
             const password = document.getElementById("Contraseña").value;
-            const confirmarPassword = document.getElementById("Confirmacion Contraseña").value;
+            const confirmarPassword = document.getElementById("ConfirmacionContraseña").value;
             const email = document.getElementById("email").value;
             const telefono = document.getElementById("Telefono").value;
+
+            const camposLlenos = nombre.trim() !== "" ||
+                        usuario.trim() !== "" ||
+                        password.trim() !== "" ||
+                        confirmarPassword.trim() !== "" ||
+                        email.trim() !== "" ||
+                        telefono.trim() !== "";
+
+    if (!camposLlenos) {
+        alert("Por favor, complete al menos uno de los campos antes de enviar el formulario.");
+        return;
+    }
+
 
             if (password !== confirmarPassword) {
                 alert("Las contraseñas no coinciden. Por favor, verifícalas.");
@@ -94,17 +91,20 @@
             localStorage.setItem("email", email);
             localStorage.setItem("telefono", telefono);
 
-            if (document.getElementById("tipoUsuario").value === "productor") {
+            const tipoUsuario = document.getElementById("tipoUsuario").value;
+            
+            if (tipoUsuario === "cliente") {
+                window.location.href = "confirmaciondeformulariocliente.html";
+            } else if (tipoUsuario === "productor") {
                 const rut = document.getElementById("Rut").value;
-                const ubicacion = document.getElementById("Ubicacion del producto_/finca").value;
+                const ubicacion = document.getElementById("UbicacionDelProductoFinca").value;
                 localStorage.setItem("rut", rut);
                 localStorage.setItem("ubicacion", ubicacion);
+                window.location.href = "confirmacionformulario.html";
             }
-
-            window.location.href = "confirmacionformulario.html";
+            
         }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-
 </body>
 </html>
