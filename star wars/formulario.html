@@ -41,7 +41,9 @@
     function enviarFormulario(){
         const tipo =   document.getElementById("tipo").value;
         const mensaje = document.getElementById("mensaje").value;
-        // creacion del objeto formdata con los datos del formulario
+        
+
+// creacion del objeto formdata con los datos del formulario
         const formData = new FormData();
         formdata.appened("tipo", tipo);
         formdata.appened("mensaje", mensaje);
@@ -65,6 +67,5 @@
 
 
     }
-</script>
 </body>
 </html>
