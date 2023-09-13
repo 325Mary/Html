@@ -43,29 +43,28 @@
         const mensaje = document.getElementById("mensaje").value;
         
 
-// creacion del objeto formdata con los datos del formulario
-        const formData = new FormData();
-        formdata.appened("tipo", tipo);
-        formdata.appened("mensaje", mensaje);
 
-        // enviar datos als ervidor php
-        fetch("procesar_pqrs.php",{
-            method: "POST",
-            body: formData
+// Creación del objeto FormData con los datos del formulario
+            const formData = new FormData();
+            formData.append("tipo", tipo);
+            formData.append("mensaje", mensaje);
 
-        })
-        .then(Response =>{
-            if(Response.ok){
-                alert("Formulario enviado con exito")
-            } else {
-                alert("Eroor al enviar formulario")
-            }
-        })
-        .catch(error => {
-            console.error("Error al enviar Formulario", error);
-        });
-
-
-    }
+            // Enviar los datos al servidor Node.js
+            fetch("/enviarCorreo", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert("Correo enviado con éxito.");
+                } else {
+                    alert("Error al enviar el correo.");
+                }
+            })
+            .catch(error => {
+                console.error("Error:", error);
+            });
+        }
 </body>
 </html>
